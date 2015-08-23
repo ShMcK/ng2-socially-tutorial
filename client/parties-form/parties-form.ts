@@ -11,8 +11,8 @@ import {FORM_DIRECTIVES, Control, ControlGroup, Validators} from 'angular2/angul
 export class PartiesForm {
   constructor() {
     this.partiesForm = new ControlGroup({
-      name: new Control(''),
-      description: new Control('')
+      name: new Control('', Validators.required),
+      description: new Control('', Validators.required)
     });
   }
 }
