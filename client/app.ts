@@ -14,6 +14,9 @@ class Socially {
       this.parties = Parties.find().fetch();
     }));
   }
+  remove(party) {
+    Parties.remove(party._id);
+  }
 }
 
 bootstrap(Socially);
