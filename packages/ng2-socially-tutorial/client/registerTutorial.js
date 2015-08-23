@@ -1,6 +1,6 @@
 Diffbox.registerTutorial('tutorialAngular2', {
   githubRepoName: 'shmck/ng2-socially-tutorial',
-  patchFilename: 'angular2Tutorial.multi.patch'
+  patchFilename: 'angular-meteor2.multi.patch'
 });
 
 //TutorialRegistry.registerTutorial({

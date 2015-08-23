@@ -14,7 +14,7 @@ Package.onUse(function(api) {
     'mdg:tutorial-registry'
   ]);
   api.addFiles([
-    'angular2Tutorial.multi.patch'
+    'angular-meteor2.multi.patch'
   ]);
 });
 
