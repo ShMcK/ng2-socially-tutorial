@@ -1,11 +1,12 @@
 import {Component, View, NgFor, bootstrap} from 'angular2/angular2';
+import {PartiesForm} from 'client/parties-form/parties-form';
 
 @Component({
   selector: 'app'
 })
 @View({
   templateUrl: 'client/index.ng.html',
-  directives: [NgFor]
+  directives: [NgFor, PartiesForm]
 })
 class Socially {
   constructor () {
