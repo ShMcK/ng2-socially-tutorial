@@ -15,4 +15,19 @@ export class PartiesForm {
       description: new Control('', Validators.required)
     });
   }
+  add(party) {
+    // validate if the form is valid
+    if (this.partiesForm.valid) {
+
+      // insert parties (insecure way)
+      Parties.insert({
+        name: party.name,
+        description: party.description
+      });
+
+      //reset input values to empty strings
+      this.partiesForm.controls.name.updateValue('');
+      this.partiesForm.controls.description.updateValue('');
+    }
+  }
 }
