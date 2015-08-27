@@ -11,6 +11,8 @@ import {FORM_DIRECTIVES} from 'angular2/angular2';
 })
 export class PartyDetails {
   partyId: string;
+  party: IParty;
+  resetToParty: IParty;
   constructor(@Inject(RouteParams) routeParams:RouteParams) {
     this.partyId = routeParams.params.partyId;
   }
