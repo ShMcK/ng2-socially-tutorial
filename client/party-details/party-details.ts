@@ -11,9 +11,11 @@ import {RouteParams, RouterLink} from 'angular2/router';
 export class PartyDetails {
   constructor(@Inject(RouteParams) routeParams:RouteParams) {
     this.partyId = routeParams.params.partyId;
-
-    Tracker.autorun(zone.bind(() => {
-      this.party = Parties.find(this.partyId).fetch()[0];
-    }));
+  }
+  onActivate() {
+    this.party = Parties.find(this.partyId).fetch()[0];
+    if (this.party) {
+      return true;
+    }
   }
 }
