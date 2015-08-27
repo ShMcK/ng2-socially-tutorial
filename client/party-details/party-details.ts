@@ -38,4 +38,9 @@ export class PartyDetails {
       return true;
     }
   }
+  canDeactivate() {
+    if (!_.isEqual(this.party, this.resetToParty)) {
+      return confirm('Are you sure you want to leave without saving?');
+    }
+  }
 }
