@@ -1,4 +1,4 @@
-declare var Parties;
+declare var Parties:Mongo.Collection;
 
 interface IParty {
   _id?: string;
