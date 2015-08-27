@@ -17,10 +17,13 @@ export class PartyDetails {
     event.preventDefault();
     var party = this.party;
 
-    Parties.update(party._id, {
+    if (_.isString(party.name) && party.name.length &&
+      _.isString(party.description) && party.description.length) {
+      Parties.update(party._id, {
         name: party.name,
         description: party.description
-    });
+      });
+    }
   }
   onActivate() {
     this.party = Parties.find(this.partyId).fetch()[0];
