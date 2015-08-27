@@ -9,13 +9,14 @@ import {FORM_DIRECTIVES, Control, ControlGroup, Validators} from 'angular2/angul
   directives: [FORM_DIRECTIVES]
 })
 export class PartiesForm {
+  partiesForm: ControlGroup;
   constructor() {
     this.partiesForm = new ControlGroup({
       name: new Control('', Validators.required),
       description: new Control('', Validators.required)
     });
   }
-  add(party) {
+  add(party:IParty) {
     // validate if the form is valid
     if (this.partiesForm.valid) {
 

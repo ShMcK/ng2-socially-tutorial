@@ -16,7 +16,7 @@ export class PartiesList {
       this.parties = Parties.find().fetch();
     }));
   }
-  remove(party) {
+  remove(party:IParty) {
     Parties.remove(party._id);
   }
 }
