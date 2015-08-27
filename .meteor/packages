@@ -6,7 +6,11 @@
 
 meteor-platform
 autopublish
-insecure
+
 shmck:angular2
 netanelgilad:angular2-typescript
 shmck:angular2-router
+
+# Accounts
+accounts-password
+accounts-ui
