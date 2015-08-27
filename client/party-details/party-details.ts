@@ -1,11 +1,12 @@
 import {Component, View, Inject} from 'angular2/angular2';
-import {RouteParams} from 'angular2/router';
+import {RouteParams, RouterLink} from 'angular2/router';
 
 @Component({
   selector: 'party-details'
 })
 @View({
-  templateUrl: 'client/party-details/party-details.ng.html'
+  templateUrl: 'client/party-details/party-details.ng.html',
+  directives: [RouterLink]
 })
 export class PartyDetails {
   constructor(@Inject(RouteParams) routeParams:RouteParams) {
