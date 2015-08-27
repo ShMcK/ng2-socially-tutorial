@@ -1,7 +1,11 @@
-<header>
-  <h2>{{party.name}}</h2>
+<form>
+  <label>Name</label>
+  <input type="text">
 
-  <p>{{party.description}}</p>
+  <label>Description</label>
+  <input type="text">
 
-  <a [router-link]="['/parties-list']">Back</a>
-</header>
+  <button type="submit">Save</button>
+  <button>Reset form</button>
+  <button [router-link]="['/parties-list']">Cancel</button>
+</form>
