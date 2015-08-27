@@ -1,4 +1,5 @@
-import {Component, View} from 'angular2/angular2';
+import {Component, View, Inject} from 'angular2/angular2';
+import {RouteParams} from 'angular2/router';
 
 @Component({
   selector: 'party-details'
@@ -6,4 +7,12 @@ import {Component, View} from 'angular2/angular2';
 @View({
   templateUrl: 'client/party-details/party-details.ng.html'
 })
-export class PartyDetails {}
+export class PartyDetails {
+  constructor(@Inject(RouteParams) routeParams:RouteParams) {
+    this.partyId = routeParams.params.partyId;
+
+    Tracker.autorun(zone.bind(() => {
+      this.party = Parties.find(this.partyId).fetch()[0];
+    }));
+  }
+}
