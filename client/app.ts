@@ -4,7 +4,7 @@ import {Component, View, bootstrap} from 'angular2/angular2';
   selector: 'app'
 })
 @View({
-  template: "<p>Hello World!</p>"
+  templateUrl: 'client/index.ng.html'
 })
 class Socially {}
 
