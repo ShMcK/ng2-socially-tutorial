@@ -8,3 +8,5 @@ meteor-platform
 autopublish
 insecure
 mdg:tutorial-step-diff-compiler
+shmck:angular2
+netanelgilad:angular2-typescript
