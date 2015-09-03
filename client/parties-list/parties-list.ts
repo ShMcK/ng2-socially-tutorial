@@ -1,4 +1,5 @@
 import {Component, View, NgFor, bootstrap} from 'angular2/angular2';
+import {RouterLink} from 'angular2/router';
 import {PartiesForm} from 'client/parties-form/parties-form';
 
 @Component({
@@ -6,7 +7,7 @@ import {PartiesForm} from 'client/parties-form/parties-form';
 })
 @View({
   templateUrl: 'client/parties-list/parties-list.ng.html',
-  directives: [NgFor, PartiesForm]
+  directives: [NgFor, PartiesForm, RouterLink]
 })
 export class PartiesList {
   constructor () {
