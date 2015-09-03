@@ -10,3 +10,4 @@ insecure
 mdg:tutorial-step-diff-compiler
 shmck:angular2
 netanelgilad:angular2-typescript
+shmck:angular2-router
