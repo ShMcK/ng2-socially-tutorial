@@ -1,4 +1,5 @@
 import {Component, View, NgFor, bootstrap} from 'angular2/angular2';
+import {routerInjectables, RouterOutlet, RouterLink, RouteConfig} from 'angular2/router';
 import {PartiesForm} from 'client/parties-form/parties-form';
 
 @Component({
@@ -6,8 +7,9 @@ import {PartiesForm} from 'client/parties-form/parties-form';
 })
 @View({
   templateUrl: 'client/index.ng.html',
-  directives: [NgFor, PartiesForm]
+  directives: [NgFor, PartiesForm, RouterOutlet, RouterLink]
 })
+@RouteConfig()
 class Socially {
   constructor () {
     Tracker.autorun(zone.bind(() => {
@@ -19,4 +21,4 @@ class Socially {
   }
 }
 
-bootstrap(Socially);
+bootstrap(Socially, [routerInjectables]);
