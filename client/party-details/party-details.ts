@@ -23,11 +23,18 @@ export class PartyDetails {
         name: party.name,
         description: party.description
       });
+      this.resetToParty = _.clone(party);
     }
+  }
+  reset(event) {
+    event.preventDefault();
+    this.party = this.resetToParty;
   }
   onActivate() {
     this.party = Parties.find(this.partyId).fetch()[0];
     if (this.party) {
+      console.log('loading...');
+      this.resetToParty = _.clone(this.party);
       return true;
     }
   }
