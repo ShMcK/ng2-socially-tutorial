@@ -23,7 +23,8 @@ export class PartiesForm {
       // insert parties (insecure way)
       Parties.insert({
         name: party.name,
-        description: party.description
+        description: party.description,
+        owner: Meteor.userId()
       });
 
       //reset input values to empty strings
