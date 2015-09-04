@@ -24,7 +24,8 @@ export class PartyDetails {
       _.isString(party.description) && party.description.length) {
       Parties.update(party._id, {
         name: party.name,
-        description: party.description
+        description: party.description,
+        owner: Meteor.userId()
       });
       this.resetToParty = _.clone(party);
     }
