@@ -1,9 +1,11 @@
 import {Component, View, Inject} from 'angular2/angular2';
 import {RouteParams, RouterLink} from 'angular2/router';
 import {FORM_DIRECTIVES} from 'angular2/angular2';
+import {PartyService} from 'client/lib/party-service';
 
 @Component({
-  selector: 'party-details'
+  selector: 'party-details',
+  viewBindings: [PartyService]
 })
 @View({
   templateUrl: 'client/party-details/party-details.ng.html',
@@ -13,7 +15,10 @@ export class PartyDetails {
   partyId: string;
   party: IParty;
   resetToParty: IParty;
-  constructor(@Inject(RouteParams) routeParams:RouteParams) {
+  partyService:PartyService;
+  constructor(@Inject(RouteParams) routeParams:RouteParams,
+  @Inject(PartyService) partyService:PartyService) {
+    this.partyService = partyService;
     this.partyId = routeParams.params.partyId;
   }
   save(event) {
@@ -22,11 +27,7 @@ export class PartyDetails {
 
     if (_.isString(party.name) && party.name.length &&
       _.isString(party.description) && party.description.length) {
-      Parties.update(party._id, {
-        name: party.name,
-        description: party.description,
-        owner: Meteor.userId()
-      });
+      this.partyService.update(party);
       this.resetToParty = _.clone(party);
     }
   }
