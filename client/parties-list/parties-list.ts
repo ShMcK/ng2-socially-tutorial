@@ -1,9 +1,11 @@
-import {Component, View, NgFor, bootstrap} from 'angular2/angular2';
+import {Component, View, NgFor, Inject, bootstrap} from 'angular2/angular2';
 import {RouterLink} from 'angular2/router';
 import {PartiesForm} from 'client/parties-form/parties-form';
+import {PartyService} from 'client/lib/party-service';
 
 @Component({
-  selector: 'parties-list'
+  selector: 'parties-list',
+  viewBindings: [PartyService]
 })
 @View({
   templateUrl: 'client/parties-list/parties-list.ng.html',
@@ -11,12 +13,14 @@ import {PartiesForm} from 'client/parties-form/parties-form';
 })
 export class PartiesList {
   parties: IParty[];
-  constructor () {
+  partyService:PartyService;
+  constructor (@Inject(PartyService) partyService:PartyService) {
+    this.partyService = partyService;
     Tracker.autorun(zone.bind(() => {
       this.parties = Parties.find().fetch();
     }));
   }
   remove(party:IParty) {
-    Parties.remove(party._id);
+    this.partyService.remove(party._id);
   }
 }
