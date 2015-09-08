@@ -1,5 +1,6 @@
-import {Component, View} from 'angular2/angular2';
+import {Component, View, Inject} from 'angular2/angular2';
 import {FORM_DIRECTIVES, Control, ControlGroup, Validators} from 'angular2/angular2';
+import {PartyService} from 'client/lib/party-service';
 
 @Component({
   selector: 'parties-form'
@@ -10,7 +11,9 @@ import {FORM_DIRECTIVES, Control, ControlGroup, Validators} from 'angular2/angul
 })
 export class PartiesForm {
   partiesForm: ControlGroup;
-  constructor() {
+  partyService: PartyService;
+  constructor(@Inject(PartyService) partyService:PartyService) {
+    this.partyService = partyService;
     this.partiesForm = new ControlGroup({
       name: new Control('', Validators.required),
       description: new Control('', Validators.required)
@@ -21,11 +24,7 @@ export class PartiesForm {
     if (this.partiesForm.valid) {
 
       // insert parties (insecure way)
-      Parties.insert({
-        name: party.name,
-        description: party.description,
-        owner: Meteor.userId()
-      });
+     this.partyService.add(party);
 
       //reset input values to empty strings
       this.partiesForm.controls.name.updateValue('');
