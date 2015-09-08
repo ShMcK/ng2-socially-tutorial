@@ -36,6 +36,10 @@ export class PartyDetails {
     this.party = this.resetToParty;
   }
   canActivate() {
+    if (!Meteor.userId()) {
+      alert('Please login first');
+      return false;
+    }
     return Meteor.userId();
   }
   onActivate() {
