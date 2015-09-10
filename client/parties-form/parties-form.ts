@@ -16,7 +16,8 @@ export class PartiesForm {
     this.partyService = partyService;
     this.partiesForm = new ControlGroup({
       name: new Control('', Validators.required),
-      description: new Control('', Validators.required)
+      description: new Control('', Validators.required),
+      isPublic: new Control(false)
     });
   }
   add(party:IParty) {
