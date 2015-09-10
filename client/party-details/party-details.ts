@@ -1,4 +1,4 @@
-import {Component, View, Inject} from 'angular2/angular2';
+import {Component, View, Inject, NgFor} from 'angular2/angular2';
 import {RouteParams, RouterLink} from 'angular2/router';
 import {FORM_DIRECTIVES} from 'angular2/angular2';
 import {PartyService} from 'client/lib/party-service';
@@ -9,7 +9,7 @@ import {PartyService} from 'client/lib/party-service';
 })
 @View({
   templateUrl: 'client/party-details/party-details.ng.html',
-  directives: [RouterLink, FORM_DIRECTIVES]
+  directives: [RouterLink, FORM_DIRECTIVES, NgFor]
 })
 export class PartyDetails {
   partyId: string;
