@@ -1,14 +1,23 @@
-<form (submit)="save($event)">
-  <label>Name</label>
-  <input type="text" [(ng-model)]="party.name">
+<div>
+  <form (submit)="save($event)">
+    <label>Name</label>
+    <input type="text" [(ng-model)]="party.name">
 
-  <label>Description</label>
-  <input type="text" [(ng-model)]="party.description">
+    <label>Description</label>
+    <input type="text" [(ng-model)]="party.description">
 
-  <label>Is public</label>
-  <input type="checkbox" [(ng-model)]="party.isPublic">
+    <label>Is public</label>
+    <input type="checkbox" [(ng-model)]="party.isPublic">
 
-  <button type="submit">Save</button>
-  <button (click)="reset($event)">Reset form</button>
-  <button [router-link]="['/parties-list']">Cancel</button>
-</form>
+    <button type="submit">Save</button>
+    <button (click)="reset($event)">Reset form</button>
+    <button [router-link]="['/parties-list']">Cancel</button>
+  </form>
+
+  <ul>
+    Users:
+    <li *ng-for="#user of users">
+      <div>{{ user.emails[0].address }}</div>
+    </li>
+  </ul>
+</div>
