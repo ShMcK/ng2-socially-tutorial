@@ -5,6 +5,9 @@
   <label>Description</label>
   <input type="text" [(ng-model)]="party.description">
 
+  <label>Is public</label>
+  <input type="checkbox" [(ng-model)]="party.isPublic">
+
   <button type="submit">Save</button>
   <button (click)="reset($event)">Reset form</button>
   <button [router-link]="['/parties-list']">Cancel</button>
