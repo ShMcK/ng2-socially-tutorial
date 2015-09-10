@@ -15,6 +15,7 @@ export class PartiesList {
   parties: IParty[];
   partyService:PartyService;
   constructor (@Inject(PartyService) partyService:PartyService) {
+    Meteor.subscribe('parties');
     this.partyService = partyService;
     Tracker.autorun(zone.bind(() => {
       this.parties = Parties.find().fetch();
