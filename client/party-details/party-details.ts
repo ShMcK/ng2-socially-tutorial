@@ -43,6 +43,7 @@ export class PartyDetails {
     return Meteor.userId();
   }
   onActivate() {
+    Meteor.subscribe('parties', this.partyId);
     this.party = Parties.find(this.partyId).fetch()[0];
     if (this.party) {
       console.log('loading...');
