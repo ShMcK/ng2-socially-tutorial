@@ -7,4 +7,5 @@ interface IParty {
   name: string;
   description: string;
   owner: string;
+  isPublic: boolean;
 }
