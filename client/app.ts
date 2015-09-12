@@ -10,15 +10,6 @@ import {PartiesForm} from 'client/parties-form/parties-form';
   directives: [NgFor, PartiesForm, ROUTER_DIRECTIVES]
 })
 @RouteConfig()
-class Socially {
-  constructor () {
-    Tracker.autorun(zone.bind(() => {
-      this.parties = Parties.find().fetch();
-    }));
-  }
-  remove(party) {
-    Parties.remove(party._id);
-  }
-}
+class Socially {}
 
 bootstrap(Socially, [ROUTER_BINDINGS]);
