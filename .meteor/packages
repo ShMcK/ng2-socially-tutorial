@@ -14,3 +14,5 @@ shmck:angular2-router
 # Accounts
 accounts-password
 accounts-ui
+accounts-facebook
+accounts-twitter
