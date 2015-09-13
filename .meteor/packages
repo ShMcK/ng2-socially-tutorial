@@ -7,3 +7,5 @@
 meteor-platform
 autopublish
 insecure
+shmck:angular2
+netanelgilad:angular2-typescript
